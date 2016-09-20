@@ -19,9 +19,12 @@ app.locals.company = 'app.locals.company'
 app.locals.errors = {} // errors & body added to avoid guard statements
 app.locals.body = {} // i.e. value=(body && body.name) vs. value=body.name
 
+// middlewares
 app.use(session({
-  store: new RedisStore(),
-  secret: 'secretsalt'
+  store: new RedisStore({
+    url: process.env.REDIS_URL || 'redis://localhost:6379'
+  }),
+  secret: 'pizzadescottsupersecretkey'
 }))
 
 app.use((req, res, next) => {
