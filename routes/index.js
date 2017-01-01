@@ -80,13 +80,6 @@ router.post('/logout', (req, res) => {
 })
 
 
-router.post('/logout', (req, res) => {
-  req.session.destroy(err => {
-    if (err) throw err
-    res.redirect('/login')
-  })
-})
-
 // login guard middleware
 router.use((req, res, next) => {
   if (req.session.email) {

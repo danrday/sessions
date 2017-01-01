@@ -24,7 +24,7 @@ app.use(session({
   store: new RedisStore({
     url: process.env.REDIS_URL || 'redis://localhost:6379'
   }),
-  secret: 'pizzadescottsupersecretkey'
+  secret: 'sessionexsupersecretkey'
 }))
 
 app.use((req, res, next) => {
